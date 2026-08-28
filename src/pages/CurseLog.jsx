@@ -1,4 +1,4 @@
-import { GiGhostSlime } from 'react-icons/gi';
+import { GiGhost } from "react-icons/gi";
 
 export const CurseLog = () => {
   const curses = [

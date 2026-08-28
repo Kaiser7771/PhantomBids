@@ -4,8 +4,10 @@ import { AuthPage } from "./pages/auth/AuthPage";
 import { HousesPage } from "./pages/houses/HousePage";
 import { ProfilePage } from "./pages/profile/ProfilePage";
 import { CreateObjectPage } from "./pages/objects/CreateObjectPage";
+
+// Componentes de subastas y funciones de compañeros
 import { AuctionDetail } from "./pages/AuctionDetail";
-import { CurseLog } from "./pages/CurseLog";git 
+import { CurseLog } from "./pages/CurseLog";
 import { RankingsDashboard } from "./pages/RankingsDashboard";
 
 export default function App() {
@@ -15,7 +17,7 @@ export default function App() {
         <Navbar />
         <main className="flex-1 max-w-7xl w-full mx-auto p-4 md:p-6">
           <Routes>
-            {/* Rutas tuyas */}
+            {/* Rutas principales y layout */}
             <Route path="/" element={<Navigate to="/houses" replace />} />
             <Route path="/login" element={<AuthPage />} />
             <Route path="/register" element={<AuthPage />} />
@@ -23,10 +25,13 @@ export default function App() {
             <Route path="/objects/new" element={<CreateObjectPage />} />
             <Route path="/profile" element={<ProfilePage />} />
 
-            {/* Rutas de tu compañero */}
+            {/* Rutas del módulo de subastas */}
             <Route path="/auction/:id" element={<AuctionDetail />} />
             <Route path="/profile/curses" element={<CurseLog />} />
             <Route path="/rankings" element={<RankingsDashboard />} />
+            
+            {/* Catch-all para redirigir rutas no encontradas */}
+            <Route path="*" element={<Navigate to="/houses" replace />} />
           </Routes>
         </main>
       </div>

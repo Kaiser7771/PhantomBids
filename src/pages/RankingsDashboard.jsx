@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import { GiSkullCrossbones, GiFlames, GiTrophy } from 'react-icons/gi';
+import { GiDaemonSkull, GiFlame, GiTrophy } from 'react-icons/gi';
 
 export const RankingsDashboard = () => {
   const [activeTab, setActiveTab] = useState('worst');
 
   const tabs = [
-    { id: 'worst', label: 'Worst Bidder', icon: GiSkullCrossbones },
-    { id: 'cursed', label: 'Total Cursed', icon: GiFlames },
+    { id: 'worst', label: 'Worst Bidder', icon: GiDaemonSkull },
+    { id: 'cursed', label: 'Total Cursed', icon: GiFlame },
     { id: 'prophet', label: 'Betting Prophet', icon: GiTrophy },
   ];
 
