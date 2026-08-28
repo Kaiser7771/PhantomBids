@@ -5,7 +5,7 @@ import { HousesPage } from "./pages/houses/HousePage";
 import { ProfilePage } from "./pages/profile/ProfilePage";
 import { CreateObjectPage } from "./pages/objects/CreateObjectPage";
 import { AuctionDetail } from "./pages/AuctionDetail";
-import { CurseLog } from "./pages/CurseLog";
+import { CurseLog } from "./pages/CurseLog";git 
 import { RankingsDashboard } from "./pages/RankingsDashboard";
 
 export default function App() {
