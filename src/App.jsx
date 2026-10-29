@@ -10,31 +10,36 @@ import { AuctionDetail } from "./pages/AuctionDetail";
 import { CurseLog } from "./pages/CurseLog";
 import { RankingsDashboard } from "./pages/RankingsDashboard";
 
+// Contexto Global de Autenticación
+import { AuthProvider } from "./context/AuthContext";
+
 export default function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans">
-        <Navbar />
-        <main className="flex-1 max-w-7xl w-full mx-auto p-4 md:p-6">
-          <Routes>
-            {/* Rutas principales y layout */}
-            <Route path="/" element={<Navigate to="/houses" replace />} />
-            <Route path="/login" element={<AuthPage />} />
-            <Route path="/register" element={<AuthPage />} />
-            <Route path="/houses" element={<HousesPage />} />
-            <Route path="/objects/new" element={<CreateObjectPage />} />
-            <Route path="/profile" element={<ProfilePage />} />
+      <AuthProvider>
+        <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans">
+          <Navbar />
+          <main className="flex-1 max-w-7xl w-full mx-auto p-4 md:p-6">
+            <Routes>
+              {/* Rutas principales y layout */}
+              <Route path="/" element={<Navigate to="/houses" replace />} />
+              <Route path="/login" element={<AuthPage />} />
+              <Route path="/register" element={<AuthPage />} />
+              <Route path="/houses" element={<HousesPage />} />
+              <Route path="/objects/new" element={<CreateObjectPage />} />
+              <Route path="/profile" element={<ProfilePage />} />
 
-            {/* Rutas del módulo de subastas */}
-            <Route path="/auction/:id" element={<AuctionDetail />} />
-            <Route path="/profile/curses" element={<CurseLog />} />
-            <Route path="/rankings" element={<RankingsDashboard />} />
-            
-            {/* Catch-all para redirigir rutas no encontradas */}
-            <Route path="*" element={<Navigate to="/houses" replace />} />
-          </Routes>
-        </main>
-      </div>
+              {/* Rutas del módulo de subastas */}
+              <Route path="/auction/:id" element={<AuctionDetail />} />
+              <Route path="/profile/curses" element={<CurseLog />} />
+              <Route path="/rankings" element={<RankingsDashboard />} />
+              
+              {/* Catch-all para redirigir rutas no encontradas */}
+              <Route path="*" element={<Navigate to="/houses" replace />} />
+            </Routes>
+          </main>
+        </div>
+      </AuthProvider>
     </BrowserRouter>
   );
 }

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { FiSearch, FiHome, FiTrendingUp, FiLock } from "react-icons/fi";
 import { GiCrystalBall, GiCastle, GiGhost } from "react-icons/gi";
 
@@ -34,10 +35,16 @@ const MOCK_HOUSES = [
 
 export function HousesPage() {
   const [searchTerm, setSearchTerm] = useState("");
+  const navigate = useNavigate();
 
   const filteredHouses = MOCK_HOUSES.filter((house) =>
     house.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  const handleEnterHouse = (houseId) => {
+    // Redirige a la vista de detalles de la subasta con el ID correspondiente
+    navigate(`/auction/${houseId}`);
+  };
 
   return (
     <div className="space-y-8">
@@ -112,7 +119,10 @@ export function HousesPage() {
                 </div>
               </div>
 
-              <button className="w-full bg-purple-950/80 hover:bg-purple-900 border border-purple-800/50 hover:border-purple-600 text-purple-300 font-medium py-2.5 rounded-xl transition-all flex items-center justify-center gap-2 text-sm group-hover:shadow-md group-hover:shadow-purple-950/50">
+              <button 
+                onClick={() => handleEnterHouse(house.id)}
+                className="w-full bg-purple-950/80 hover:bg-purple-900 border border-purple-800/50 hover:border-purple-600 text-purple-300 font-medium py-2.5 rounded-xl transition-all flex items-center justify-center gap-2 text-sm group-hover:shadow-md group-hover:shadow-purple-950/50 cursor-pointer"
+              >
                 <span>Ingresar al Recinto</span>
                 <FiTrendingUp className="text-xs group-hover:translate-x-1 transition-transform" />
               </button>

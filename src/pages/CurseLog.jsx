@@ -9,7 +9,7 @@ export const CurseLog = () => {
   return (
     <div className="p-6 bg-slate-950 min-h-screen text-slate-100">
       <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-        <GiGhostSlime className="text-rose-500" /> Curse Log / Historial de Maldiciones
+        <GiGhost className="text-rose-500" /> Curse Log / Historial de Maldiciones
       </h2>
       <div className="grid gap-4 md:grid-cols-2">
         {curses.map((curse) => {
